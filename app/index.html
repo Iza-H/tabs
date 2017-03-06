@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabs project</title>
+    <link rel="stylesheet" href="styles/css/main.css">
+</head>
+<body ng-app="tabs" ng-controller="MainCtrl">
+    <tabs sectionclass="top">
+        <tab ng-repeat="item in initialdata" label="{{item.top}}">
+            <tabs sectionclass="left" send-response="setResponse(response)" parent="{{item.top}}">
+                <tab ng-repeat="submenu in item.left" label="{{submenu}}">
+                    <!--<section class="content">Content for: {{item.top}} - {{submenu}}</section>-->
+                    <section class="content">{{getServerResponse(item.top)}}</section>
+                </tab>
+            </tabs>
+        </tab>
+    </tabs>
+
+
+
+    <!--scripts-->
+    <script src="libs/angular.min.js"></script>
+
+    <script src="scripts/app.js"></script>
+
+    <!--properties-->
+    <script src="scripts/constants/Properties.js"></script>
+
+    <!--controllers-->
+    <script src="scripts/controllers/MainController.js"></script>
+
+    <!--directives-->
+    <script src="scripts/directives/TabItemDirective.js"></script>
+    <script src="scripts/directives/TabsDirective.js"></script>
+
+    <!--services-->
+    <script src="scripts/services/BackendService.js"></script>
+
+</body>
+</html>
